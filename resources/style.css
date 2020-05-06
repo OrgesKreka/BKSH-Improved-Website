@@ -1,0 +1,28 @@
+.Site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.Site-content {
+  flex: 1;
+}
+
+#database-source {
+  margin-bottom: 20px;
+}
+
+.error-notification {
+  display: none;
+}
+
+.modal-card-body {
+  padding: 0px;
+}
+
+.footer {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+}
