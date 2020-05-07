@@ -145,6 +145,9 @@
     <Content Include="wwwroot\resources\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="wwwroot\vendors\bulma\bulma-badge.min.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="wwwroot\vendors\bulma\bulma-pageloader.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

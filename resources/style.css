@@ -26,3 +26,13 @@
   padding-bottom: 10px;
   background-color: white;
 }
+
+.button {
+  pointer-events: none;
+}
+
+.badge {
+  font-size: 0.8rem;
+  padding: 0.08rem 0.2rem;
+  margin: auto;
+}

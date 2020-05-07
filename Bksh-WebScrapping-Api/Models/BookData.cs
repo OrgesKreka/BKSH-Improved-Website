@@ -16,7 +16,8 @@ namespace Bksh_WebScrapping_Api.Models
 
 		public int NumberOfPages { get; set; }
 
-		public float EstimatedReadingTime { get; set; }
+		public float MinEstimatedReadingTime { get; set; }
+		public float MaxEstimatedReadingTime { get; set; }
 
 		public string Notes { get; set; }
 

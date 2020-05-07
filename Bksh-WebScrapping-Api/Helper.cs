@@ -5,6 +5,7 @@ using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reflection;
@@ -19,6 +20,14 @@ namespace Bksh_WebScrapping_Api
         private readonly string baseUrl = "http://www.bksh.al/";
         private readonly string searchUrl = "adlib/scripts/wwwopac.exe";
         private readonly RestRequest _request;
+        private readonly string _pagesNumberpattern = @"\d+ f."; // regex per te kontrolluar nese eshte numri i faqeve apo jo tek te dhenat fizike
+
+        /// <summary>
+        ///     Te dhenat e marra nga https://capitalizemytitle.com/reading-time/100-pages/
+        ///     Ku ka kohe mesatare ne minuta per leximin e 1 faqeje ngadale dhe shpejte
+        /// </summary>
+        private const float SlowestTimeToReadAPage = 4;     // min, 125 fjale per minute
+        private const float FastestTimeToReadAPage = 1.1f;  // min, 450 fjale per minute
 
         /// <summary>
         ///		Inicializon requestin me header-at qe pranon website
@@ -50,6 +59,7 @@ namespace Bksh_WebScrapping_Api
             var client = new RestClient(baseUrl);
 
             _request.Method = Method.POST;
+            _request.Parameters.Clear();
             _request.AddParameter("application/x-www-form-urlencoded", bodyQueryString, ParameterType.RequestBody);
 
             var response = await client.ExecuteAsync(_request);
@@ -82,6 +92,7 @@ namespace Bksh_WebScrapping_Api
             var client = new RestClient(baseUrl);
 
             _request.Method = Method.POST;
+            _request.Parameters.Clear();
             _request.AddParameter("application/x-www-form-urlencoded", bodyQueryString, ParameterType.RequestBody);
 
             var response = await client.ExecuteAsync(_request);
@@ -182,6 +193,23 @@ namespace Bksh_WebScrapping_Api
                     if (rowContent.Contains("<td valign=\"top\"><b>të dhëna fizike</b><br></td>"))
                     {
                         bookData.PhysicalData = row.LastChild.TextContent.Replace("\n", "");
+
+                        Regex regex = new Regex(_pagesNumberpattern);
+                        var match =  regex.Match(bookData.PhysicalData);
+
+                        if(match.Success)
+                        {
+                            var numberOfPages = 0;
+
+                            if (int.TryParse(match.Value.Replace(" f.", ""), out numberOfPages))
+                            {
+                                bookData.NumberOfPages = numberOfPages;
+                                bookData.MaxEstimatedReadingTime = numberOfPages * SlowestTimeToReadAPage;
+                                bookData.MinEstimatedReadingTime = numberOfPages * FastestTimeToReadAPage;
+                            }
+                        }
+
+
                         continue;
                     }
 
