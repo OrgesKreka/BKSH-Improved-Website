@@ -8,13 +8,24 @@ Prandaj vendosa të bëj një dizajn më të kohës duke shfaqur të dhënat e n
 
 ## Linqet
 
-**Linku i faqes aktuale të BKSH:** [http://www.bksh.al/Katalogu/library/wwwopac/wwwroot/beginner/index_al.html](http://www.bksh.al/Katalogu/library/wwwopac/wwwroot/beginner/index_al.html)
-**Faqja e hostuar në GearHost:** [http://bksh-improved-website.gear.host/](http://bksh-improved-website.gear.host/)
-**Faqja e hostuar në GithubPages:** [https://orgeskreka.github.io/BKSH-Improved-Website/](https://orgeskreka.github.io/BKSH-Improved-Website/)
+**Linku i faqes aktuale të BKSH:** [http://www.bksh.al/Katalogu/library/wwwopac/wwwroot/beginner/index_al.html](http://www.bksh.al/Katalogu/library/wwwopac/wwwroot/beginner/index_al.html)  
+**Faqja e hostuar në GearHost:** [http://bksh-improved-website.gear.host/](http://bksh-improved-website.gear.host/)  
+**Faqja e hostuar në GithubPages:** [https://orgeskreka.github.io/BKSH-Improved-Website/](https://orgeskreka.github.io/BKSH-Improved-Website/)  
 **Dokumentimi i API:** http://bksh-improved-website.gear.host/swagger/ui/index
 
-> Çdo kritikë apo sugjerim është e mirëpritur.
+> Çdo kritikë apo sugjerim është e mirëpritur.  
 > Tek faqja është dhe profili im në facebook.
+
+<details>
+<summary><b>Imazhe</b></summary>
+
+![title](resources/images/image.png)
+_Fig. 1: Forma e kërkimit tek faqja e BKSH dhe faqja e përmirësuar_
+
+![title](<resources/images/image(1).png>)
+_Fig. 2: Shfaqja e rezultateve tek faqja e BKSH dhe faqja e përmirësuar_
+
+</details>
 
 # Funksionimi
 
